@@ -14,8 +14,9 @@ export type OnboardingStackParamList = {
 export type AuthStackParamList = {
   Login: undefined;
   Signup: undefined;
+  ForgotPassword: undefined;
+  OTPVerification: undefined;
 };
-
 export type BottomTabParamList = {
   Dashboard: undefined;
   Expenses: undefined;

@@ -1,18 +1,14 @@
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
-    "types": [
-      "jest"
-    ]
+    "types": ["jest"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components": ["./src/components"],
+      "@screens": ["./src/screens"],
+      "@navigation": ["./src/navigation"]
+    }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "global.d.ts",
-    "nativewind-env.d.ts"
-  ],
-  "exclude": [
-    "**/node_modules",
-    "**/Pods"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "global.d.ts", "nativewind-env.d.ts"],
+  "exclude": ["**/node_modules", "**/Pods"]
 }

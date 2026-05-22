@@ -6,35 +6,23 @@
  */
 import './global.css';
 import {
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-  View,
-  Text,
-} from 'react-native';
-import {
   SafeAreaProvider,
   SafeAreaView,
-  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import SplashScreen from './src/screens/onboarding/SplashScreen';
-import OnboardingScreen from './src/screens/onboarding/OnboardingScreen';
 import { useEffect } from 'react';
 import BootSplash from 'react-native-bootsplash';
+import AppNavigator from '@/navigation/AppNavigator';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
   useEffect(() => {
     BootSplash.hide({ fade: true });
   }, []);
   return (
-    <SafeAreaProvider>
-      <SafeAreaView className="bg-primary h-full flex-1">
-        {/* <SplashScreen />
-         */}
-        {/* <OnboardingScreen /> */}
-      </SafeAreaView>
-    </SafeAreaProvider>
+      <SafeAreaProvider>
+        <SafeAreaView className="bg-primary h-full flex-1">
+          <AppNavigator />
+        </SafeAreaView>
+      </SafeAreaProvider>
   );
 }
 

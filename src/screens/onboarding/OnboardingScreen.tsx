@@ -35,16 +35,16 @@ export default function OnboardingScreen({ navigation }: any) {
         animated: true,
       });
     } else {
-      // navigation.replace('Auth');
+      navigation.replace('Auth');
     }
   };
 
   const handleSkip = () => {
-    // navigation.replace('Auth');
+    navigation.replace('Auth');
   };
 
   return (
-    <View className="flex-1 bg-surface">
+    <View className="flex-1">
       <FlatList
         ref={flatListRef}
         data={onboardingData}

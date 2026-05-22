@@ -12,20 +12,21 @@ type Props = {
 
 export default function OnboardingItem({ item }: Props) {
   return (
-    <View className="w-full px-6 py-6 items-center justify-center">
+    <View className="flex-1 w-screen items-center justify-center gap-2 px-6">
       <Image
         source={item.image}
         resizeMode="contain"
-        className="w-[300px] h-[300px]"
+        className="w-[400px] h-[400px]"
       />
+      <View className='flex-1 justify-center items-center gap-2'>
+        <Text className="text-3xl font-bold text-center  text-text-primary">
+          {item.title}
+        </Text>
 
-      <Text className="text-[34px] font-bold text-center mt-10 text-text-primary">
-        {item.title}
-      </Text>
-
-      <Text className="text-lg text-center mt-5 text-text-secondary px-5">
-        {item.subtitle}
-      </Text>
+        <Text className="text-xl text-center text-text-secondary">
+          {item.subtitle}
+        </Text>
+      </View>
     </View>
   );
 }
