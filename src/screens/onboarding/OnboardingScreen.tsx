@@ -4,15 +4,14 @@ import {
   Dimensions,
   NativeScrollEvent,
   NativeSyntheticEvent,
-  TouchableOpacity,
-  Text,
 } from 'react-native';
 
 import { useRef, useState } from 'react';
 
 import OnboardingItem from '../../components/onboarding/OnboardingItem';
 import Pagination from '../../components/onboarding/Pagination';
-import NextButton from '../../components/onboarding/NextButton';
+import { Button } from '../../components/common/Button';
+import { routes } from '@/constants/routes';
 
 import { onboardingData } from './onboarding.data';
 
@@ -35,16 +34,16 @@ export default function OnboardingScreen({ navigation }: any) {
         animated: true,
       });
     } else {
-      navigation.replace('Auth');
+      navigation.replace(routes.root.auth);
     }
   };
 
   const handleSkip = () => {
-    navigation.replace('Auth');
+    navigation.replace(routes.root.auth);
   };
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 px-3 py-4 gap-4">
       <FlatList
         ref={flatListRef}
         data={onboardingData}
@@ -57,29 +56,30 @@ export default function OnboardingScreen({ navigation }: any) {
         scrollEventThrottle={16}
       />
 
-      <View className="px-6 pb-10">
+      <View className="flex-1 gap-4 py-4 justify-end">
         <Pagination currentIndex={currentIndex} total={onboardingData.length} />
 
         <View className="mt-7.5">
-          <NextButton
+          <Button
             title={
               currentIndex === onboardingData.length - 1
                 ? 'Get Started'
                 : 'Next'
             }
             onPress={handleNext}
+            width="full"
+            variant="primary"
           />
         </View>
 
         {currentIndex !== onboardingData.length - 1 && (
-          <TouchableOpacity
+          <Button
             onPress={handleSkip}
-            className="mt-4.5 items-center"
-          >
-            <Text className="text-text-secondary text-base font-medium">
-              Skip
-            </Text>
-          </TouchableOpacity>
+            className="border-none text-text-muted"
+            title="Skip"
+            width="full"
+            variant="link"
+          ></Button>
         )}
       </View>
     </View>

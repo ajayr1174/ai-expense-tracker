@@ -2,6 +2,7 @@ import { View, StyleSheet } from 'react-native';
 
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
+import { routes } from '@/constants/routes';
 import TabBarButton from './TabBarButton';
 
 import FloatingAddButton from './FloatingTabButton';
@@ -21,26 +22,26 @@ export default function CustomTabBar({
             navigation.navigate(route.name);
           };
 
-          if (route.name === 'AddExpense') {
+          if (route.name === routes.tabs.addExpense) {
             return <FloatingAddButton key={route.key} onPress={onPress} />;
           }
 
           let iconName = 'home-outline';
 
           switch (route.name) {
-            case 'Dashboard':
+            case routes.tabs.dashboard:
               iconName = isFocused ? 'home' : 'home-outline';
               break;
 
-            case 'Insights':
+            case routes.tabs.insights:
               iconName = isFocused ? 'bar-chart' : 'bar-chart-outline';
               break;
 
-            case 'Expenses':
+            case routes.tabs.expenses:
               iconName = isFocused ? 'wallet' : 'wallet-outline';
               break;
 
-            case 'Profile':
+            case routes.tabs.profile:
               iconName = isFocused ? 'person' : 'person-outline';
               break;
           }

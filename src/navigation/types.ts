@@ -1,7 +1,14 @@
+import { NavigationAction } from '@react-navigation/native';
+
 export type RootStackParamList = {
   Onboarding: undefined;
   Auth: undefined;
   MainTabs: undefined;
+  ExpenseDetails: { expenseId: string };
+  Budgets: undefined;
+  BudgetDetails: { budgetId?: string };
+  PaymentMethods: undefined;
+  Assistant: undefined;
 };
 
 export type OnboardingStackParamList = {
@@ -19,6 +26,7 @@ export type AuthStackParamList = {
 };
 export type BottomTabParamList = {
   Dashboard: undefined;
+  AddExpense: undefined;
   Expenses: undefined;
   Insights: undefined;
   Profile: undefined;

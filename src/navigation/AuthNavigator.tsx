@@ -7,28 +7,30 @@ import SignupScreen from '@/screens/auth/SignupScreen';
 import ForgotPasswordScreen from '@/screens/auth/ForgotPasswordScreen';
 
 import OTPVerificationScreen from '@/screens/auth/OTPVerificationScreen';
-
 import { AuthStackParamList } from './types';
+import { routes } from '@/constants/routes';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 export default function AuthNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName={routes.auth.login}
       screenOptions={{
         headerShown: false,
-
         animation: 'slide_from_right',
       }}
     >
-      <Stack.Screen name="Login" component={LoginScreen} />
-
-      <Stack.Screen name="Signup" component={SignupScreen} />
-
-      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-
-      <Stack.Screen name="OTPVerification" component={OTPVerificationScreen} />
+      <Stack.Screen name={routes.auth.login} component={LoginScreen} />
+      <Stack.Screen name={routes.auth.signup} component={SignupScreen} />
+      <Stack.Screen
+        name={routes.auth.forgotPassword}
+        component={ForgotPasswordScreen}
+      />
+      <Stack.Screen
+        name={routes.auth.otpVerification}
+        component={OTPVerificationScreen}
+      />
     </Stack.Navigator>
   );
 }
